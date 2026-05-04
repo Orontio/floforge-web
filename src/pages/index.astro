@@ -1,17 +1,183 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Floforge – Konstruktion & Engineering Schweiz">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow" data-de="Ingenieursdienstleistungen · Schweiz" data-en="Engineering Services · Switzerland">
+        Ingenieursdienstleistungen · Schweiz
+      </p>
+      <h1 class="hero-headline" data-de="Konstruktion, die funktioniert." data-en="Engineering that works.">
+        Konstruktion, die funktioniert.
+      </h1>
+      <p class="hero-sub" data-de="Von der Anforderung zur fertigungsreifen Lösung – ich entwickle Maschinen, Rohrleitungen und Anlagen, die in der Praxis bestehen." data-en="From specification to production-ready solution – I develop machines, piping systems and plants that hold up in practice.">
+        Von der Anforderung zur fertigungsreifen Lösung – ich entwickle Maschinen, Rohrleitungen und Anlagen, die in der Praxis bestehen.
+      </p>
+      <div class="hero-actions">
+        <a href="/projekte" class="btn btn-primary" data-de="Projekte ansehen" data-en="View Projects">Projekte ansehen</a>
+        <a href="/kontakt" class="btn btn-outline" data-de="Kontakt aufnehmen" data-en="Get in touch">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN KURZÜBERSICHT -->
+  <section class="services-preview">
+    <div class="container">
+      <h2 class="section-title" data-de="Was ich anbiete" data-en="What I offer">Was ich anbiete</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">⚙</div>
+          <h3 data-de="Projektgeschäft" data-en="Project Work">Projektgeschäft</h3>
+          <p data-de="Entwicklungsprojekte von A bis Z: Anforderungsklärung, Konstruktion, FEM-Simulation bis zur Fertigungsreife." data-en="End-to-end development projects: requirements, design, FEM simulation through to production readiness.">
+            Entwicklungsprojekte von A bis Z: Anforderungsklärung, Konstruktion, FEM-Simulation bis zur Fertigungsreife.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◎</div>
+          <h3 data-de="Bodyleasing" data-en="Engineering Capacity">Bodyleasing</h3>
+          <p data-de="Ingenieurszeit für Ihr Team – kurzfristig oder langfristig. Als externe Verstärkung, die sich sofort einbringt." data-en="Engineering hours for your team – short or long term. External capacity that contributes immediately.">
+            Ingenieurszeit für Ihr Team – kurzfristig oder langfristig. Als externe Verstärkung, die sich sofort einbringt.
+          </p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">◈</div>
+          <h3 data-de="Value Engineering" data-en="Value Engineering">Value Engineering</h3>
+          <p data-de="Kostenoptimierung ohne Qualitätsverlust. Ich kenne Fertigungsmethoden, Preisimpact und Lieferbarkeit." data-en="Cost optimisation without quality loss. I know manufacturing methods, cost impact and supply constraints.">
+            Kostenoptimierung ohne Qualitätsverlust. Ich kenne Fertigungsmethoden, Preisimpact und Lieferbarkeit.
+          </p>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <a href="/leistungen" class="btn btn-outline" data-de="Alle Leistungen" data-en="All Services">Alle Leistungen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER MICH TEASER -->
+  <section class="about-teaser">
+    <div class="container about-inner">
+      <div class="about-text">
+        <h2 data-de="Florian Rudow" data-en="Florian Rudow">Florian Rudow</h2>
+        <p data-de="Ingenieur und Konstrukteur mit Erfahrung im Spezialmaschinenbau, Rohrleitungsbau und Anlagenbau. Ich arbeite präzise, pragmatisch und nah am Kunden – von der ersten Anforderung bis zum fertigen Bauteil." data-en="Engineer and designer with experience in special-purpose machinery, piping and plant engineering. I work precisely, pragmatically and close to the client – from first requirement to finished part.">
+          Ingenieur und Konstrukteur mit Erfahrung im Spezialmaschinenbau, Rohrleitungsbau und Anlagenbau. Ich arbeite präzise, pragmatisch und nah am Kunden – von der ersten Anforderung bis zum fertigen Bauteil.
+        </p>
+        <a href="/ueber-mich" class="btn btn-outline" style="margin-top: 1.5rem;" data-de="Mehr über mich" data-en="More about me">Mehr über mich</a>
+      </div>
+      <div class="about-placeholder">
+        <div class="photo-placeholder" aria-label="Profilfoto Florian Rudow"></div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* HERO */
+  .hero {
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+    max-width: none;
+  }
+
+  .hero-headline {
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+    max-width: 14ch;
+  }
+
+  .hero-sub {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 52ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* SERVICES PREVIEW */
+  .section-title {
+    margin-bottom: 2.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 20px rgba(200, 82, 26, 0.08);
+  }
+
+  .service-icon {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+  }
+
+  .service-card h3 {
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+
+  /* ABOUT TEASER */
+  .about-teaser {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-text h2 { margin-bottom: 1rem; }
+
+  .about-text p { color: var(--color-text-muted); }
+
+  .photo-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    background: var(--color-border);
+    border: 2px dashed var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 3.5rem 0 3rem; }
+    .about-inner { grid-template-columns: 1fr; }
+    .about-placeholder { display: none; }
+  }
+</style>

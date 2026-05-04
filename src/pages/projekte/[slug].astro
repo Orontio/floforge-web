@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projekte = await getCollection('projekte');
+  return projekte.map(projekt => ({
+    params: { slug: projekt.id },
+    props: { projekt },
+  }));
+}
+
+const { projekt } = Astro.props;
+const { Content } = await render(projekt);
+
+const datumFormatiert = projekt.data.datum.toLocaleDateString('de-CH', {
+  year: 'numeric',
+  month: 'long',
+});
+---
+
+<BaseLayout
+  title={`${projekt.data.titel} – Floforge`}
+  description={projekt.data.beschreibung}
+>
+
+  <article class="projekt-artikel">
+    <div class="container">
+
+      <!-- BACK LINK -->
+      <a href="/projekte" class="back-link" data-de="← Alle Projekte" data-en="← All Projects">
+        ← Alle Projekte
+      </a>
+
+      <!-- HEADER -->
+      <header class="projekt-header">
+        <div class="projekt-meta">
+          {projekt.data.tags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+        <h1>{projekt.data.titel}</h1>
+        <p class="projekt-lead">{projekt.data.beschreibung}</p>
+        <div class="projekt-infos">
+          {projekt.data.branche && (
+            <div class="info-item">
+              <span class="info-label" data-de="Branche" data-en="Industry">Branche</span>
+              <span>{projekt.data.branche}</span>
+            </div>
+          )}
+          <div class="info-item">
+            <span class="info-label" data-de="Zeitraum" data-en="Period">Zeitraum</span>
+            <span>{datumFormatiert}</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- TITELBILD -->
+      {projekt.data.titelbild && (
+        <div class="projekt-bild">
+          <img src={projekt.data.titelbild} alt={projekt.data.titel} />
+        </div>
+      )}
+
+      <!-- INHALT (Markdown) -->
+      <div class="projekt-inhalt">
+        <Content />
+      </div>
+
+      <!-- FOOTER: CTA -->
+      <div class="projekt-cta">
+        <p data-de="Ähnliches Projekt geplant?" data-en="Similar project in mind?">Ähnliches Projekt geplant?</p>
+        <a href="/kontakt" class="btn btn-primary" data-de="Kontakt aufnehmen" data-en="Get in touch">Kontakt aufnehmen</a>
+      </div>
+
+    </div>
+  </article>
+
+</BaseLayout>
+
+<style>
+  .projekt-artikel {
+    padding: 3rem 0 5rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+    transition: color 0.15s;
+  }
+
+  .back-link:hover { color: var(--color-accent); }
+
+  .projekt-header {
+    max-width: 750px;
+    margin-bottom: 3rem;
+  }
+
+  .projekt-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    background: rgba(200, 82, 26, 0.08);
+    color: var(--color-accent);
+    border-radius: 3px;
+  }
+
+  h1 { margin-bottom: 1rem; }
+
+  .projekt-lead {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    max-width: 60ch;
+  }
+
+  .projekt-infos {
+    display: flex;
+    gap: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .info-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .projekt-bild {
+    width: 100%;
+    max-height: 480px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    border: 1px solid var(--color-border);
+  }
+
+  .projekt-bild img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Markdown Inhalt */
+  .projekt-inhalt {
+    max-width: 720px;
+    line-height: 1.8;
+  }
+
+  .projekt-inhalt :global(h2) {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .projekt-inhalt :global(h2:first-child) {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .projekt-inhalt :global(p) {
+    margin-bottom: 1.25rem;
+    color: var(--color-text);
+  }
+
+  .projekt-inhalt :global(strong) {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .projekt-inhalt :global(ul), .projekt-inhalt :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .projekt-inhalt :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  /* CTA */
+  .projekt-cta {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 720px;
+  }
+
+  .projekt-cta p {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    max-width: none;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .projekt-cta { flex-direction: column; align-items: flex-start; }
+    .projekt-infos { flex-direction: column; gap: 1rem; }
+  }
+</style>
