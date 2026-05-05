@@ -1,0 +1,450 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="3D-Druckservice – Floforge"
+  description="Professioneller 3D-Druckservice mit FDM (Prusa MK4) und SLA (Panda). Auf Wunsch inkl. CAD-Modellierung durch Florian Rudow, Ingenieur ETH."
+>
+
+  <!-- INTRO -->
+  <section class="intro-section">
+    <div class="container">
+      <p class="eyebrow" data-de="3D-Druckservice" data-en="3D Print Service">3D-Druckservice</p>
+      <h1 data-de="Ihr Modell. Gedruckt." data-en="Your model. Printed.">
+        Ihr Modell. Gedruckt.
+      </h1>
+      <p class="intro-text" data-de="Ich betreibe zwei professionelle 3D-Drucker – einen FDM- und einen SLA-Drucker – und nehme gerne externe Druckaufträge an. Ob Prototyp, Ersatzteil, Halterung oder Designobjekt: Schicken Sie mir Ihr Modell, ich drucke es. Wer noch kein Modell hat, kann optional auch die Konstruktion durch mich beauftragen." data-en="I operate two professional 3D printers – one FDM and one SLA – and am happy to take on external print jobs. Whether prototype, spare part, bracket or design object: send me your model and I'll print it. Those without a model can optionally commission the design work from me as well.">
+        Ich betreibe zwei professionelle 3D-Drucker – einen FDM- und einen SLA-Drucker – und nehme gerne externe Druckaufträge an. Ob Prototyp, Ersatzteil, Halterung oder Designobjekt: Schicken Sie mir Ihr Modell, ich drucke es. Wer noch kein Modell hat, kann optional auch die Konstruktion durch mich beauftragen.
+      </p>
+    </div>
+  </section>
+
+  <!-- DRUCKVERFAHREN -->
+  <section class="services-section">
+    <div class="container">
+
+      <div class="service-block">
+        <div class="service-text">
+          <span class="service-number">01</span>
+          <h2 data-de="FDM-Druck" data-en="FDM Printing">FDM-Druck</h2>
+          <p class="machine-tag" data-de="Prusa MK4" data-en="Prusa MK4">Prusa MK4</p>
+          <p data-de="FDM (Fused Deposition Modeling) ist das robuste Verfahren für funktionale Teile. Schicht für Schicht wird Kunststoff aufgetragen – ideal für Prototypen, technische Halterungen und Bauteile, die mechanisch beansprucht werden. Ich drucke standardmässig in PLA und PETG; auf Anfrage auch andere Materialien." data-en="FDM (Fused Deposition Modeling) is the robust method for functional parts. Plastic is applied layer by layer – ideal for prototypes, technical brackets and components subject to mechanical stress. I print in PLA and PETG as standard; other materials on request.">
+            FDM (Fused Deposition Modeling) ist das robuste Verfahren für funktionale Teile. Schicht für Schicht wird Kunststoff aufgetragen – ideal für Prototypen, technische Halterungen und Bauteile, die mechanisch beansprucht werden. Ich drucke standardmässig in PLA und PETG; auf Anfrage auch andere Materialien.
+          </p>
+          <ul class="service-list">
+            <li data-de="Funktionale Prototypen & Ersatzteile" data-en="Functional prototypes & spare parts">Funktionale Prototypen &amp; Ersatzteile</li>
+            <li data-de="Halterungen, Gehäuse, Adapterstücke" data-en="Brackets, housings, adapter pieces">Halterungen, Gehäuse, Adapterstücke</li>
+            <li data-de="Druckvolumen bis ca. 250 × 210 × 220 mm" data-en="Print volume up to approx. 250 × 210 × 220 mm">Druckvolumen bis ca. 250 × 210 × 220 mm</li>
+            <li data-de="Materialien: PLA, PETG (weitere auf Anfrage)" data-en="Materials: PLA, PETG (others on request)">Materialien: PLA, PETG (weitere auf Anfrage)</li>
+          </ul>
+        </div>
+        <div class="service-visual">
+          <div class="visual-card">
+            <div class="fdm-visual">
+              <div class="fdm-layers">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <div class="fdm-layer" style={`opacity: ${0.4 + i * 0.12}; width: ${60 + i * 8}%`}></div>
+                ))}
+              </div>
+              <p class="visual-label" data-de="Schicht für Schicht" data-en="Layer by layer">Schicht für Schicht</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="service-block reverse">
+        <div class="service-text">
+          <span class="service-number">02</span>
+          <h2 data-de="SLA-Druck" data-en="SLA Printing">SLA-Druck</h2>
+          <p class="machine-tag" data-de="Panda" data-en="Panda">Panda</p>
+          <p data-de="SLA (Stereolithografie) aushärtet flüssiges Resin mit UV-Licht und ermöglicht eine deutlich feinere Auflösung als FDM. Das Ergebnis: glatte Oberflächen und scharfe Details – perfekt für anspruchsvolle Optik, kleine Präzisionsteile oder Gussmodelle." data-en="SLA (Stereolithography) cures liquid resin with UV light, enabling significantly finer resolution than FDM. The result: smooth surfaces and sharp details – perfect for demanding aesthetics, small precision parts or casting models.">
+            SLA (Stereolithografie) aushärtet flüssiges Resin mit UV-Licht und ermöglicht eine deutlich feinere Auflösung als FDM. Das Ergebnis: glatte Oberflächen und scharfe Details – perfekt für anspruchsvolle Optik, kleine Präzisionsteile oder Gussmodelle.
+          </p>
+          <ul class="service-list">
+            <li data-de="Hohe Detailtreue & glatte Oberflächen" data-en="High detail fidelity & smooth surfaces">Hohe Detailtreue &amp; glatte Oberflächen</li>
+            <li data-de="Kleine Präzisionsteile, Schmuck, Figurinen" data-en="Small precision parts, jewellery, figurines">Kleine Präzisionsteile, Schmuck, Figurinen</li>
+            <li data-de="Gussmodelle und Designobjekte" data-en="Casting models and design objects">Gussmodelle und Designobjekte</li>
+            <li data-de="Standard-Resin, transparent auf Anfrage" data-en="Standard resin, transparent on request">Standard-Resin, transparent auf Anfrage</li>
+          </ul>
+        </div>
+        <div class="service-visual">
+          <div class="visual-card">
+            <div class="sla-visual">
+              <div class="sla-platform">
+                <div class="sla-object"></div>
+              </div>
+              <div class="sla-uv-lines">
+                {Array.from({ length: 5 }).map(() => (
+                  <div class="sla-uv-line"></div>
+                ))}
+              </div>
+              <p class="visual-label" data-de="UV-gehärtet, hochpräzise" data-en="UV-cured, high precision">UV-gehärtet, hochpräzise</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAD-OPTION -->
+  <section class="cad-section">
+    <div class="container">
+      <div class="cad-card">
+        <div class="cad-icon">✦</div>
+        <div class="cad-text">
+          <h2 data-de="Kein CAD-Modell vorhanden?" data-en="No CAD model available?">Kein CAD-Modell vorhanden?</h2>
+          <p data-de="Ich kann das Teil für Sie konstruieren – von einer Skizze oder einer Beschreibung bis zum druckfertigen 3D-Modell. Die Konstruktion wird nach Aufwand verrechnet. So erhalten Sie alles aus einer Hand: Design und Druck." data-en="I can design the part for you – from a sketch or description to a print-ready 3D model. Design work is billed by time. This gives you everything from one source: design and print.">
+            Ich kann das Teil für Sie konstruieren – von einer Skizze oder einer Beschreibung bis zum druckfertigen 3D-Modell. Die Konstruktion wird nach Aufwand verrechnet. So erhalten Sie alles aus einer Hand: Design und Druck.
+          </p>
+          <ul class="service-list">
+            <li data-de="Konstruktion ab Skizze, Foto oder Beschreibung" data-en="Design from sketch, photo or description">Konstruktion ab Skizze, Foto oder Beschreibung</li>
+            <li data-de="Abrechnung nach Aufwand (Stundensatz)" data-en="Billed by time (hourly rate)">Abrechnung nach Aufwand (Stundensatz)</li>
+            <li data-de="Sie erhalten das CAD-Modell als STL oder STEP" data-en="You receive the CAD model as STL or STEP">Sie erhalten das CAD-Modell als STL oder STEP</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABLAUF -->
+  <section class="process-section">
+    <div class="container">
+      <h2 data-de="So funktioniert's" data-en="How it works">So funktioniert's</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-num">1</span>
+          <h3 data-de="Anfrage senden" data-en="Send request">Anfrage senden</h3>
+          <p data-de="Schicken Sie mir Ihr STL-Modell und Ihre Wünsche (Material, Qualität, Stückzahl) per Kontaktformular." data-en="Send me your STL model and your requirements (material, quality, quantity) via the contact form.">Schicken Sie mir Ihr STL-Modell und Ihre Wünsche (Material, Qualität, Stückzahl) per Kontaktformular.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">2</span>
+          <h3 data-de="Offerte erhalten" data-en="Receive quote">Offerte erhalten</h3>
+          <p data-de="Ich prüfe die Machbarkeit und schicke Ihnen eine Preisinformation und den geplanten Liefertermin." data-en="I check feasibility and send you pricing information and the planned delivery date.">Ich prüfe die Machbarkeit und schicke Ihnen eine Preisinformation und den geplanten Liefertermin.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">3</span>
+          <h3 data-de="Drucken & liefern" data-en="Print & deliver">Drucken &amp; liefern</h3>
+          <p data-de="Nach Auftragsbestätigung drucke ich das Teil und versende es per Post oder übergebe es persönlich in der Region Zürich." data-en="After order confirmation I print the part and send it by post or hand it over personally in the Zurich area.">Nach Auftragsbestätigung drucke ich das Teil und versende es per Post oder übergebe es persönlich in der Region Zürich.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h2 data-de="Druckauftrag anfragen?" data-en="Request a print job?">Druckauftrag anfragen?</h2>
+          <p data-de="Schicken Sie mir Ihr Modell oder beschreiben Sie kurz, was Sie benötigen." data-en="Send me your model or briefly describe what you need.">
+            Schicken Sie mir Ihr Modell oder beschreiben Sie kurz, was Sie benötigen.
+          </p>
+        </div>
+        <a href="/kontakt" class="btn btn-primary" data-de="Anfrage stellen" data-en="Submit request">Anfrage stellen</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* INTRO */
+  .intro-section {
+    padding: 5rem 0 3rem;
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+    max-width: none;
+  }
+
+  h1 { margin-bottom: 1.25rem; }
+
+  .intro-text {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 68ch;
+  }
+
+  /* SERVICES */
+  .services-section {
+    padding: 2rem 0 4rem;
+  }
+
+  .service-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    padding: 4rem 0;
+  }
+
+  .service-block.reverse { direction: rtl; }
+  .service-block.reverse > * { direction: ltr; }
+
+  .divider {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .service-number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .machine-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    margin-top: 0;
+  }
+
+  .service-text h2 { margin-bottom: 0.25rem; }
+
+  .service-text p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.75rem;
+    font-size: 1rem;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .service-list li {
+    padding-left: 1.25rem;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .service-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+  }
+
+  /* VISUAL CARDS */
+  .visual-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+  }
+
+  .visual-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin: 1rem 0 0;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  /* FDM visual */
+  .fdm-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .fdm-layers {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .fdm-layer {
+    height: 10px;
+    background: var(--color-accent);
+    border-radius: 3px;
+  }
+
+  /* SLA visual */
+  .sla-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .sla-platform {
+    width: 80px;
+    height: 50px;
+    border: 2px solid var(--color-accent);
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 4px;
+  }
+
+  .sla-object {
+    width: 40px;
+    height: 30px;
+    background: var(--color-accent);
+    border-radius: 3px 3px 0 0;
+    opacity: 0.7;
+  }
+
+  .sla-uv-lines {
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+  }
+
+  .sla-uv-line {
+    width: 2px;
+    height: 20px;
+    background: var(--color-accent);
+    opacity: 0.35;
+    border-radius: 2px;
+  }
+
+  /* CAD SECTION */
+  .cad-section {
+    padding: 0 0 4rem;
+  }
+
+  .cad-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .cad-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+
+  .cad-text h2 { margin-bottom: 0.75rem; }
+
+  .cad-text > p {
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  /* PROCESS */
+  .process-section {
+    padding: 4rem 0;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .process-section h2 { margin-bottom: 2rem; }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .process-step {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.75rem;
+  }
+
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--color-accent);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+
+  .process-step h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .process-step p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CTA */
+  .cta-section { padding: 4rem 0; }
+
+  .cta-box {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .cta-box h2 { margin-bottom: 0.5rem; }
+  .cta-box p { color: var(--color-text-muted); margin: 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .service-block,
+    .service-block.reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+      gap: 2rem;
+    }
+
+    .service-visual { display: none; }
+
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cad-card {
+      flex-direction: column;
+      padding: 1.75rem;
+    }
+
+    .cta-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

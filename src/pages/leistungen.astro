@@ -144,6 +144,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
+  <!-- 3D-DRUCK TEASER -->
+  <section class="print-teaser-section">
+    <div class="container">
+      <div class="print-teaser-card">
+        <div class="print-teaser-text">
+          <p class="eyebrow" data-de="Weiteres Angebot" data-en="Additional service">Weiteres Angebot</p>
+          <h2 data-de="3D-Druckservice" data-en="3D Print Service">3D-Druckservice</h2>
+          <p data-de="Neben Ingenieurdienstleistungen biete ich auch externe 3D-Druckaufträge an – mit einem Prusa MK4 (FDM) und einem Panda (SLA). Auf Wunsch übernehme ich auch die Konstruktion des Teils." data-en="In addition to engineering services, I also offer external 3D print jobs – with a Prusa MK4 (FDM) and a Panda (SLA). I can also design the part on request.">
+            Neben Ingenieurdienstleistungen biete ich auch externe 3D-Druckaufträge an – mit einem Prusa MK4 (FDM) und einem Panda (SLA). Auf Wunsch übernehme ich auch die Konstruktion des Teils.
+          </p>
+        </div>
+        <a href="/3d-druck" class="btn btn-outline" data-de="Mehr erfahren" data-en="Learn more">Mehr erfahren</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
@@ -366,6 +382,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     line-height: 1.6;
   }
 
+  /* 3D-DRUCK TEASER */
+  .print-teaser-section { padding: 4rem 0 0; }
+
+  .print-teaser-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2.5rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .print-teaser-card .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .print-teaser-card h2 { margin-bottom: 0.5rem; }
+
+  .print-teaser-text p:last-child {
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: 60ch;
+  }
+
   /* CTA */
   .cta-section { padding: 4rem 0; }
 
@@ -394,7 +441,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     .service-visual { display: none; }
 
-    .cta-box {
+    .cta-box,
+    .print-teaser-card {
       flex-direction: column;
       align-items: flex-start;
     }
