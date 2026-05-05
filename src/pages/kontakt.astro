@@ -53,7 +53,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <input
               type="text"
               id="name"
-              name="name"
+              name="Name"
               required
               placeholder="Max Muster"
               autocomplete="name"
@@ -61,11 +61,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
 
           <div class="form-group">
-            <label for="email" data-de="E-Mail *" data-en="Email *">E-Mail *</label>
+            <label for="email" data-de="Mail *" data-en="Mail *">Mail *</label>
             <input
               type="email"
               id="email"
-              name="email"
+              name="Mail"
               required
               placeholder="max@firma.ch"
               autocomplete="email"
@@ -74,23 +74,46 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
           <div class="form-group">
             <label for="betreff" data-de="Betreff" data-en="Subject">Betreff</label>
-            <select id="betreff" name="betreff">
+            <select id="betreff" name="Betreff">
               <option value="" data-de="— Bitte wählen —" data-en="— Please select —">— Bitte wählen —</option>
               <option value="Projektanfrage" data-de="Projektanfrage" data-en="Project inquiry">Projektanfrage</option>
               <option value="Bodyleasing" data-de="Bodyleasing / Ingenieurszeit" data-en="Engineering capacity">Bodyleasing / Ingenieurszeit</option>
+              <option value="3D-Druck" data-de="3D-Druckauftrag" data-en="3D Print job">3D-Druckauftrag</option>
               <option value="Sonstiges" data-de="Sonstiges" data-en="Other">Sonstiges</option>
             </select>
+          </div>
+
+          <div class="form-group">
+            <label for="telefon" data-de="Telefon (optional)" data-en="Phone (optional)">Telefon (optional)</label>
+            <input
+              type="tel"
+              id="telefon"
+              name="Telefon"
+              placeholder="+41 79 123 45 67"
+              autocomplete="tel"
+            />
           </div>
 
           <div class="form-group">
             <label for="nachricht" data-de="Nachricht *" data-en="Message *">Nachricht *</label>
             <textarea
               id="nachricht"
-              name="nachricht"
+              name="Nachricht"
               required
               rows="5"
               placeholder="Beschreiben Sie kurz Ihr Anliegen..."
             ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="dateien" data-de="Link zu Dateien (optional)" data-en="Link to files (optional)">Link zu Dateien (optional)</label>
+            <input
+              type="url"
+              id="dateien"
+              name="Angehängte Daten"
+              placeholder="https://1drv.ms/... oder wetransfer.com/..."
+            />
+            <span class="field-hint" data-de="Z.B. OneDrive-, WeTransfer- oder Google Drive-Link" data-en="E.g. OneDrive, WeTransfer or Google Drive link">Z.B. OneDrive-, WeTransfer- oder Google Drive-Link</span>
           </div>
 
           <button type="submit" class="btn btn-primary submit-btn">
@@ -218,6 +241,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   textarea { resize: vertical; min-height: 120px; }
+
+  .field-hint {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+    margin-top: 0.15rem;
+  }
 
   .submit-btn {
     align-self: flex-start;
